@@ -1,0 +1,23 @@
+#Software to perform FPHD diabatization implemented by Jesús Cerdá, Pau Armada and Juan Aragó
+#DEPENDENCIES
+
+Intructions of use with Gaussian:
+
+1. Define FPHDPATH global variable to the downloaded folder path
+2. Obtian fchk gaussian file
+3. Obtain .states and .over from rwf files as rwfdump name.rwf name.states 635r and rwfdump name.rwf name.over 514r
+4. Run program as $FPHDPATH/bin/FPHD.exe inputname > outputname
+
+Use with ORCA, Psy4 and Pyscf is implemented but not documented, ask to jesus.cerda@uv.es
+
+Compilers:
+gfortran
+python (>= 3.6.12)
+
+Fortran libraries:
+LAPACK (>= 3.7.0)
+BLAS (>= 3.7.0)
+
+Python libraries:
+PyParsing (>= 2.2.0)
+NumPy (>= 1.19.4)

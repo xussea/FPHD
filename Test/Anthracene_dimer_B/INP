@@ -1,0 +1,16 @@
+$DIAB
+Inp='dimantra_B_WB97X_TDA'
+Nstates=30
+TD='CIS'
+Nfrag=2
+AI=2
+Dthr=0.8
+Dip='Y'
+$END
+
+$FRAG
+NAFrag=24,24
+AN=6,1
+AB=15,5
+$END
+
