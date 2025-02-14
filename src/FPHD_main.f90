@@ -20,8 +20,8 @@ real*8,dimension(:,:,:), allocatable :: AM_Xa,AM_Ya,AM_Xb,AM_Yb,Dha,Dhb,Dea,Deb
 real*8,dimension(:,:,:), allocatable :: Pet,Pht,Peta,Petb,Phta,Phtb
 real*8 :: Dthr,tol, tre, trh, trea, treb, trha, trhb
 character (len=200) :: Inp
-character (len=5) :: TD,Spin
-character (len=1) :: dip,DenMat,soc
+character (len=5) :: TD
+character (len=1) :: Spin,dip,DenMat,soc
 
 !real*8, dimension(:,:), allocatable :: dipo
 
@@ -64,17 +64,19 @@ namelist /DIAB/ Inp,Spin,Nstates,TD,Nfrag,AI,tol,Dthr,DenMat,dip,soc
 namelist /FRAG/ NAFrag,AN,AB
 
 tol=1.0e-08
-!TD='CIS'
-!Nfrag=2
-!Nstates=2
-!DenMat='N'
-!dip='N'
-!nargs = 1
-!if (nargs > 0) then
+TD='CIS'
+Nfrag=2
+Nstates=2
+DenMat='N'
+dip='N'
+Spin='R'
+SOC='N'
+nargs = command_argument_count()
+if (nargs > 0) then
 call get_command_argument(1,arg)
-!else
- !       write(*,*)"WARNING: You don't put a input file"
-!end if
+else
+       write(*,*)"WARNING: You don't put a input file"
+end if
 
 open(unit=10, file=arg, status='old', action='read')
 read(10,NML=DIAB)
